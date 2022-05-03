@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/portlc/static/js/main.2b5b1d2e.js",
+    "main.js": "/portlc/static/js/main.1fd53a2b.js",
     "static/media/lightfractals.png": "/portlc/static/media/lightfractals.06011894dc69330147ac.png",
     "static/media/darkfractals.png": "/portlc/static/media/darkfractals.f3a88d977773d94d2698.png",
     "static/media/lightlogo2.png": "/portlc/static/media/lightlogo2.37ae7ff8ca5950f1b37e.png",
     "static/media/darklogo1.png": "/portlc/static/media/darklogo1.443b6cf2670531e28f54.png",
     "index.html": "/portlc/index.html",
-    "main.2b5b1d2e.js.map": "/portlc/static/js/main.2b5b1d2e.js.map"
+    "main.1fd53a2b.js.map": "/portlc/static/js/main.1fd53a2b.js.map"
   },
   "entrypoints": [
-    "static/js/main.2b5b1d2e.js"
+    "static/js/main.1fd53a2b.js"
   ]
 }
