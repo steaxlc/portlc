@@ -46,7 +46,7 @@ const StyledHero = styled.section`
             }
     }
     button{
-        
+         
         ${props => props.darkMode ? `color: white;` : `color: black;`};
         border-radius: 30px;
         background: rgba(9,51,55,1);
