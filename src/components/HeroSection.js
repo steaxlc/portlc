@@ -1,41 +1,66 @@
+import { toBePartiallyChecked } from '@testing-library/jest-dom/dist/matchers';
 import React from 'react'
 
 import styled from 'styled-components';
 
 import darkfractals from '../images/darkfractals.png'
 import darklogo from '../images/darklogo1.png'
+import lightfractals from '../images/lightfractals.png'
+import lightlogo from '../images/lightlogo2.png'
 
-const HeroSection = () => {
+const HeroSection = ({darkMode}) => {
   return (
-      <StyledHero>
-          <div className='words'>
+      <StyledHero darkMode={darkMode}>
+          <div className={`words ${darkMode? `dark`:`light`}`}>
             <h1>Luciano Castro</h1>
-            <h3>Front-end Developer</h3>
+              <h3>Front-end Developer</h3>
+              <button>About Me</button>
           </div>
-          <img className='fractals' src={darkfractals}></img>
+          {darkMode ?
+              <img className='fractals' src={darkfractals} alt='broken glass'></img> :
+        <img className='fractals' src={lightfractals} alt='broken glass'></img>  
+        }
           
     </StyledHero>
   )
 }
 
 const StyledHero = styled.section`
-    min-height: 90vh;
+    min-height: 992vh;
     padding: 0;
     display: relative;
-    background-image: url(${darklogo});
+    font-family: 'League Spartan', sans-serif;
     background-size: 70vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    font-family: 'League Spartan', sans-serif;
+    ${props => props.darkMode ? `background-image: url(${darklogo});` : `background-image: url(${lightlogo});`};
     .words{
-        padding-top: 30vh;
+        padding-top: 40vh;
+        ${props => props.darkMode ? `color: white;` : `color: black;`};
         h1{
                 font-weight: 400;
             }
+            h3{
+                margin-left: 5px;
+            }
+    }
+    button{
+        
+        ${props => props.darkMode ? `color: white;` : `color: black;`};
+        border-radius: 30px;
+        background: rgba(9,51,55,1);
+        background: ${props => props.darkMode ? `linear-gradient(90deg, rgba(18,101,110,1) 0%, rgba(9,51,55,1) 100%);` :
+        `linear-gradient(90deg, rgba(236,168,252,1) 0%, rgba(254,218,169,1) 100%);`};
+        border: 2px transparent;
+        margin-top: 50px;
+        &:hover{
+            border: 2px solid white;
+            background: transparent;
+        }
     }
     .fractals{
-        z-index: -1;
+        z-index: 0;
         position: absolute;
         top: 0;
         right: 0;

@@ -4,16 +4,17 @@ import styled from 'styled-components'
 
 import {FaSun, FaMoon} from 'react-icons/fa'
 
-const Nav = () => {
-  return (
-      <StyledNav>
+const Nav = ({ darkMode, changeDarkMode }) => {
+
+    return (
+        <StyledNav darkMode={darkMode}>
           <h1 className='logo' id='logo'><a href='#'>LC</a></h1>
           <ul>
               <li><a href='#'>Home</a></li>
               <li><a href='#'>Projects</a></li>
               <li><a href='#'>Resumé</a></li>
               <li><a href='#'>Contact</a></li>
-              <li className='toggleDarkMode'><FaSun/></li>
+              <li className='toggleDarkMode' onClick={() => changeDarkMode()}>{ darkMode? <FaSun/> : <FaMoon/> }</li>
               <li className='hide'>Hamburger</li>
           </ul>
       </StyledNav>
@@ -21,6 +22,7 @@ const Nav = () => {
 }
 
 const StyledNav = styled.nav`
+    
     min-height: 5vh;
     display:flex;
     margin: auto;
@@ -28,12 +30,16 @@ const StyledNav = styled.nav`
     align-items: center;
     padding: 0.7rem;
     z-index: 5;
-    background-color: rgba(28,29,37,.5);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: ${props => props.darkMode ?`rgba(28,29,37,.5)` : `rgba(28,29,37,.2)`};
     a{
             text-decoration: none;
-            color: white;
+            color: ${props => props.darkMode ? `white` : `black`};
         }
     ul{
+        z-index: 2;
         font-family: 'League Spartan', sans-serif;
         display: flex;
         list-style: none;
@@ -48,6 +54,7 @@ const StyledNav = styled.nav`
     }
     .toggleDarkMode{
         cursor: pointer;
+        color: ${props => props.darkMode ? `white` : `black`};
     }
     .hide{
         display: none;
